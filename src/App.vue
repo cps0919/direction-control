@@ -1,15 +1,11 @@
 <template>
-  <DirectionControl @direction="directionClick" />
+  <direction-control @direction="directionClick" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import DirectionControl from "@/components/direction.vue";
 export default defineComponent({
   name: "App",
-  components: {
-    DirectionControl,
-  },
   setup() {
     const directionClick = (e: { mouse: string; direction: number }) => {
       console.log(e);

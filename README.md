@@ -9,18 +9,26 @@ npm install direction-control --save
 ```
 ### 引入方式
 ````javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+import DirectionControl from 'direction-control'
+import "direction-control/more-player.css"
+
+const app = createApp(App)
+app.use(DirectionControl)
+app.mount('#app')
+````
+### 事例
+
+````javascript
 <template>
-  <DirectionControl @direction="directionClick" />
+  <direction-control @direction="directionClick" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import DirectionControl from "@/components/direction.vue";
 export default defineComponent({
   name: "App",
-  components: {
-    DirectionControl,
-  },
   setup() {
     const directionClick = (e: { mouse: string; direction: number }) => {
       console.log(e);
@@ -42,11 +50,6 @@ export default defineComponent({
   margin-top: 60px;
 }
 </style>
-
-
-
-
-
 
 ```
 ### 参数
