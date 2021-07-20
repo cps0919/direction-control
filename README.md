@@ -1,24 +1,59 @@
-# direction-player
+## 方向控制盘
+    基于vue3.x、typescript封装的多屏播放组件
+### 依赖
+    -Vue3.x
+    -typescript
+### 安装插件
+```
+npm install direction-control --save
+```
+### 引入方式
+````javascript
+<template>
+  <DirectionControl @direction="directionClick" />
+</template>
 
-## Project setup
-```
-yarn install
-```
+<script lang="ts">
+import { defineComponent } from "vue";
+import DirectionControl from "@/components/direction.vue";
+export default defineComponent({
+  name: "App",
+  components: {
+    DirectionControl,
+  },
+  setup() {
+    const directionClick = (e: { mouse: string; direction: number }) => {
+      console.log(e);
+    };
+    return {
+      directionClick,
+    };
+  },
+});
+</script>
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+```
+### 参数
+  #### 1.属性
+    -bgColor：背景颜色
+    -acBgColor：激活背景颜色
+  #### 2.方法
+    -direction(e)：点击方向返回的参数
+        -参数e：mouse当前激活窗口；direction:方向代表的数组，从上顺时针 1,2,3,4,5,6,7,8
+

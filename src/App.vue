@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <DirectionControl @direction="directionClick" />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
+<script lang="ts">
+import { defineComponent } from "vue";
+import DirectionControl from "@/components/direction.vue";
+export default defineComponent({
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    DirectionControl,
+  },
+  setup() {
+    const directionClick = (e: { mouse: string; direction: number }) => {
+      console.log(e);
+    };
+    return {
+      directionClick,
+    };
+  },
+});
 </script>
 
 <style>
